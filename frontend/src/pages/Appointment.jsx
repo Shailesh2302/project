@@ -40,7 +40,7 @@ const Appointment = () => {
       endTime.setDate(today.getDate() + i);
       endTime.setHours(21, 0, 0, 0);
 
-      // setting hours  
+      // setting hours
       if (today.getDate() === currentDate.getDate()) {
         currentDate.setHours(
           currentDate.getHours() > 10 ? currentDate.getHours() + 1 : 10
@@ -139,7 +139,7 @@ const Appointment = () => {
       <div className="flex flex-col sm:flex-row gap-4">
         <div>
           <img
-            className="bg-primary w-full sm:max-w-72 rounded-lg"
+            className="bg-green-400 w-full sm:max-w-72 rounded-lg"
             src={docInfo.image}
             alt=""
           />
@@ -192,7 +192,7 @@ const Appointment = () => {
                 key={index}
                 className={`text-center py-6 min-w-16 rounded-full cursor-pointer ${
                   slotIndex === index
-                    ? "bg-primary text-white"
+                    ? "bg-green-400 text-white"
                     : "border border-[#DDDDDD]"
                 }`}
               >
@@ -210,7 +210,7 @@ const Appointment = () => {
                 key={index}
                 className={`text-sm font-light  flex-shrink-0 px-5 py-2 rounded-full cursor-pointer ${
                   item.time === slotTime
-                    ? "bg-primary text-white"
+                    ? "bg-green-400 text-white"
                     : "text-[#949494] border border-[#B4B4B4]"
                 }`}
               >
@@ -221,7 +221,7 @@ const Appointment = () => {
 
         <button
           onClick={bookAppointment}
-          className="bg-primary text-white text-sm font-light px-20 py-3 rounded-full my-6"
+          className="bg-green-400 text-white text-sm font-light px-20 py-3 rounded-full my-6"
         >
           Book an appointment
         </button>
