@@ -15,12 +15,18 @@ connectCloudinary()
 
 // middlewares
 app.use(express.json())
+const allowedOrigins = ["https://project-git-main-rushikesh-kanfades-projects.vercel.app", "https://project-puxj.vercel.app/"];
 app.use(cors({
-  origin: ["https://project-git-main-rushikesh-kanfades-projects.vercel.app", "https://project-puxj.vercel.app/"],
-  credentials: true, // Allow credentials
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Add supported methods
-  allowedHeaders: ['Content-Type', 'Authorization'] // Add allowed headers
-  
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }))
 
 // api endpoints
