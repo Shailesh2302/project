@@ -54,6 +54,7 @@ const AddDoctor = () => {
         backendUrl + "/api/admin/add-doctor",
         formData,
         { headers: { aToken } }
+        
       );
       if (data.success) {
         toast.success(data.message);

@@ -22,7 +22,9 @@ const Login = () => {
       const { data } = await axios.post(backendUrl + "/api/admin/login", {
         email,
         password,
-      });
+      },
+      { withCredentials: true } // This ensures cookies or credentials are sent
+      );
       if (data.success) {
         setAToken(data.token);
         localStorage.setItem("aToken", data.token);
