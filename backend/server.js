@@ -16,8 +16,11 @@ connectCloudinary()
 // middlewares
 app.use(express.json())
 app.use(cors({
-  origin: [process.env.FRONTEND_URL, "https://project-puxj.vercel.app/"],
-  credentials: true
+  origin: ["https://project-git-main-rushikesh-kanfades-projects.vercel.app", "https://project-puxj.vercel.app/"],
+  credentials: true, // Allow credentials
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Add supported methods
+  allowedHeaders: ['Content-Type', 'Authorization'] // Add allowed headers
+  
 }))
 
 // api endpoints
